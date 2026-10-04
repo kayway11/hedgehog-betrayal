@@ -1,0 +1,202 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: #0f0f14;
+  color: #e5e7eb;
+  font-family: -apple-system, system-ui, sans-serif;
+  min-height: 100vh;
+  padding: 16px;
+  max-width: 640px;
+  margin: 0 auto;
+  -webkit-tap-highlight-color: transparent;
+}
+
+h1, h2, h3 { margin-bottom: 8px; }
+
+.btn {
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: none;
+  font-weight: 600;
+  font-size: 15px;
+  transition: opacity .15s;
+  cursor: pointer;
+}
+.btn:disabled { opacity: .4; cursor: not-allowed; }
+.btn-primary { background: #ff4d6d; color: white; width: 100%; }
+.btn-ghost { background: rgba(255,255,255,.1); color: white; }
+
+.panel {
+  background: #1a1a24;
+  border-radius: 14px;
+  padding: 16px;
+  margin-bottom: 12px;
+  border: 1px solid rgba(255,255,255,.05);
+}
+
+.input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  background: rgba(0,0,0,.4);
+  border: 1px solid rgba(255,255,255,.1);
+  color: white;
+  font-size: 16px;
+  outline: none;
+  margin-bottom: 8px;
+}
+.input:focus { border-color: #ff4d6d; }
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  margin-bottom: 16px;
+  opacity: .85;
+}
+
+.brand { color: #ff4d6d; font-weight: 700; }
+
+.code-display {
+  font-size: 48px;
+  font-weight: 900;
+  font-family: monospace;
+  color: #ff4d6d;
+  text-align: center;
+  margin: 12px 0;
+  letter-spacing: 4px;
+}
+
+.center { text-align: center; }
+
+.player-list { list-style: none; }
+.player-list li {
+  background: rgba(0,0,0,.3);
+  padding: 12px;
+  border-radius: 10px;
+  margin-bottom: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 15px;
+}
+.player-list li.exiled { opacity: .4; text-decoration: line-through; }
+.player-list li.you { border: 1px solid rgba(255,77,109,.4); }
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.tile {
+  padding: 14px;
+  border-radius: 10px;
+  background: rgba(0,0,0,.3);
+  text-align: left;
+  border: 2px solid transparent;
+  color: white;
+  cursor: pointer;
+  font-size: 15px;
+  width: 100%;
+}
+.tile.selected {
+  background: #ff4d6d;
+  border-color: #ff9aae;
+}
+.tile .name { font-weight: 700; }
+.tile .sub { font-size: 12px; opacity: .75; margin-top: 2px; }
+
+.timer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.timer-num {
+  font-size: 28px;
+  font-weight: 800;
+  font-family: monospace;
+  min-width: 40px;
+  text-align: center;
+}
+.timer-bar {
+  flex: 1;
+  height: 8px;
+  background: rgba(255,255,255,.1);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.timer-fill {
+  height: 100%;
+  background: #ff4d6d;
+  transition: width .1s linear;
+}
+
+.chat {
+  height: 220px;
+  display: flex;
+  flex-direction: column;
+}
+.chat-log {
+  flex: 1;
+  overflow-y: auto;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+.chat-log div { margin-bottom: 4px; line-height: 1.4; }
+.chat-name { color: #ff4d6d; font-weight: 600; }
+.chat-form { display: flex; gap: 8px; }
+.chat-form .input { margin-bottom: 0; flex: 1; }
+
+.reveal-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 12px;
+  background: rgba(0,0,0,.3);
+  border-radius: 8px;
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+.reveal-item .pts { color: #ff4d6d; font-family: monospace; font-weight: 700; }
+
+.score-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 12px;
+  border-radius: 8px;
+  margin-bottom: 4px;
+  font-size: 15px;
+}
+.score-row.first { background: rgba(255,77,109,.2); }
+.score-row.exiled { opacity: .4; text-decoration: line-through; }
+
+.emoji-bar {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  font-size: 28px;
+}
+.emoji-bar button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: inherit;
+  transition: transform .15s;
+}
+.emoji-bar button:active { transform: scale(1.3); }
+
+.big-emoji { font-size: 64px; text-align: center; margin: 16px 0; }
+.winner-name { font-size: 28px; font-weight: 900; color: #ff4d6d; text-align: center; }
+
+.muted { opacity: .6; font-size: 14px; }
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  background: rgba(255,255,255,.1);
+  margin-left: 6px;
+}
+.badge.host { background: #fbbf24; color: #000; }
