@@ -1,12 +1,10 @@
-document.body.innerHTML = '<div style="padding:20px;color:#4ade80;font-size:24px;font-family:monospace;">1. JS RUNNING</div>';
-
 let socket;
 try {
   socket = io();
-  document.body.innerHTML += '<div style="padding:20px;color:#4ade80;font-size:24px;font-family:monospace;">2. SOCKET OK</div>';
 } catch (err) {
-  document.body.innerHTML += '<div style="padding:20px;color:#f87171;font-size:24px;font-family:monospace;">2. SOCKET FAIL: ' + err.message + '</div>';
+  document.body.innerHTML = '<div style="padding:20px;color:red;">Socket failed: ' + err.message + '</div>';
 }
+
 let state = null;
 let myName = '';
 let myCode = '';
@@ -21,6 +19,10 @@ socket.on('state', (s) => {
   if (!myCode && s.code) myCode = s.code;
   render();
 });
+
+// Render the home screen IMMEDIATELY on page load
+renderHome();
+
 
 function render() {
   if (!state) {
