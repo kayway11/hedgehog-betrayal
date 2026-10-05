@@ -1,8 +1,12 @@
-window.addEventListener('error', (e) => {
-  document.body.innerHTML = '<div style="padding:20px;background:#300;color:#fff;font-family:monospace;font-size:12px;white-space:pre-wrap;">ERROR: ' + (e.message || e.error || 'unknown') + '\n\n' + (e.error && e.error.stack ? e.error.stack : '') + '</div>';
-});
-const socket = io();
+document.body.innerHTML = '<div style="padding:20px;color:#4ade80;font-size:24px;font-family:monospace;">1. JS RUNNING</div>';
 
+let socket;
+try {
+  socket = io();
+  document.body.innerHTML += '<div style="padding:20px;color:#4ade80;font-size:24px;font-family:monospace;">2. SOCKET OK</div>';
+} catch (err) {
+  document.body.innerHTML += '<div style="padding:20px;color:#f87171;font-size:24px;font-family:monospace;">2. SOCKET FAIL: ' + err.message + '</div>';
+}
 let state = null;
 let myName = '';
 let myCode = '';
