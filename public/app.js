@@ -1,3 +1,6 @@
+window.addEventListener('error', (e) => {
+  document.body.innerHTML = '<div style="padding:20px;background:#300;color:#fff;font-family:monospace;font-size:12px;white-space:pre-wrap;">ERROR: ' + (e.message || e.error || 'unknown') + '\n\n' + (e.error && e.error.stack ? e.error.stack : '') + '</div>';
+});
 const socket = io();
 
 let state = null;
