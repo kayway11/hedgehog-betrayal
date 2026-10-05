@@ -16,9 +16,16 @@ import {
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-
+console.log('__dirname is:', __dirname);
+console.log('public path is:', path.join(__dirname, 'public'));
 const app = express();
-app.use(express.static(path.join(__dirname, 'public')));
+const publicPath = path.join(__dirname, 'public');
+console.log('Serving static from:', publicPath);
+app.use(express.static(publicPath));
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join(publicPath, 'index.html'));
+});
 
 const server = http.createServer(app);
 const io = new Server(server, { cors: { origin: '*' } });
